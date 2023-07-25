@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
+        <meta charset="UTF-8"/>
+        <title>TechShop</title>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <script th:src="@{/js/rutinas.js}"></script>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </head>
+    <body>
+
+
+        <header th:fragment="header" class="header">
+
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><section id="main-header" class="navbar navbar-expand-lg bg-body-tertiary">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">                            
+                                        <h1><i class="fa fa-space-shuttle"></i> [[#{plantilla.suTienda}]]</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </section></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Perfil</a>
+                            </li>
+                            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Categorias
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Sucesos</a></li>
+                                    <li><a class="dropdown-item" href="#">Deportes</a></li>
+                                    <li><a class="dropdown-item" href="#">Politica</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <nav class="navbar bg-body-tertiary">
+                                    <div class="container-fluid">
+                                        <form class="d-flex" role="search">
+                                            <input class="form-control me-2" type="search" placeholder="Noticia" aria-label="Search">
+                                                <button class="btn btn-outline-success" type="submit">Buscar</button>
+                                        </form>
+                                    </div>
+                                </nav>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+        </header>
+
+        <footer th:fragment="footer" class="bg-dark text-white mt-5 p-2">
+            <div class="container">
+                <div class="col">
+                    <p class="lead text-center" >
+                        &COPY; [[#{plantilla.derechos}]]
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
