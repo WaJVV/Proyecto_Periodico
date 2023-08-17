@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>FastNews</title>
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+
+
+        <!-- Sección principal para mostrar la información de deportes -->
+        <section th:fragment="FormularioContacto" id="FormularioContacto">
+            <form method="POST" th:action="@{/contacto/guardar}"th:object="${contactenos}" class="was-validated"enctype="multipart/form-data"> 
+
+                <div class="input-group p-3" >
+                    <span class="input-group-text" id="basic-addon1">Nombre</span>
+                    <input type="text" class="form-control" placeholder="Digite su nombre" aria-label="Username" aria-describedby="basic-addon1" name="nombre" th:field="*{nombre}">
+                </div>
+
+                <div class="input-group p-3" >
+                    <span class="input-group-text" id="basic-addon1">Apellido</span>
+                    <input type="text" class="form-control" placeholder="Digite su apellido" aria-label="Username" aria-describedby="basic-addon1" name="apellido" th:field="*{apellido}>
+                </div>
+
+
+                <div class="input-group p-3">
+                    <label for="basic-url" class="form-label">Tu correo electronico</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon3">@example.com</span>
+                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4" name="correo" th:field="*{correo}>
+                    </div>
+                    <div class="form-text" id="basic-addon4">Esto solo es un ejemplo.</div>
+                </div>
+
+
+                 <!--  <div class="input-group p-3" >
+                    <span class="input-group-text">Tema de consulta</span>
+                    <textarea class="form-control" aria-label="With textarea" ></textarea>
+                </div> -->
+
+                <div class="input-group p-5" >
+                    <button type="button"  class="btn btn-dark">Enviar</button>
+                </div>
+            </form>
+
+
+
+
+        </section>
+
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+    </body>
+</html>

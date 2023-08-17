@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/plantilla :: head}">
+    <title>FastNews</title>
+</head>
+<body>
+    <header th:replace="~{layout/plantilla :: header}"/>
+
+    <!-- Sección principal para mostrar la información de entretenimiento -->
+    <section th:fragment="listadoEntretenimiento" id="listadoEntretenimiento">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Seccion de Entretenimiento</h4>
+                        </div>
+                        <div th:if="${entretenimiento != null and !entretenimiento.empty}">
+                            <div class="list-group">
+                                <!-- Iterando a través de la lista de entretenimiento -->
+                                <div th:each="entretenimiento : ${entretenimiento}">
+                                    <div class="list-group-item">
+                                        <h2 class="mb-1">Titulo: [[${entretenimiento.nombre}]]</h2>
+                                        <p class="mb-1">Descripción: [[${entretenimiento.descripcion}]]</p>
+                                        <img th:if="${entretenimiento.ruta_imagen}" th:src="${entretenimiento.ruta_imagen}" alt="Imagen de entretenimiento" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center p-2" th:if="${entretenimiento == null or entretenimiento.empty}">
+                            <span>No hay noticias de entretenimiento disponibles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer th:replace="~{layout/plantilla :: footer}"/>
+</body>
+</html>

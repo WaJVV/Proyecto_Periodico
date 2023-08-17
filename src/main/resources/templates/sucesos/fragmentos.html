@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/plantilla :: head}">
+    <title>FastNews</title>
+</head>
+<body>
+    <header th:replace="~{layout/plantilla :: header}"/>
+
+    <!-- Sección principal para mostrar la información de sucesos -->
+    <section th:fragment="listadoSucesos" id="listadoSucesos">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Seccion de Sucesos</h4>
+                        </div>
+                        <div th:if="${sucesos != null and !sucesos.empty}">
+                            <div class="list-group">
+                                <!-- Iterando a través de la lista de sucesos -->
+                                <div th:each="sucesos : ${sucesos}">
+                                    <div class="list-group-item">
+                                        <h2 class="mb-1">Titulo: [[${sucesos.nombre}]]</h2>
+                                        <p class="mb-1">Descripción: [[${sucesos.descripcion}]]</p>
+                                        <img th:if="${sucesos.ruta_imagen}" th:src="${sucesos.ruta_imagen}" alt="Imagen de sucesos" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center p-2" th:if="${sucesos == null or sucesos.empty}">
+                            <span>No hay noticas de sucesos disponibles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer th:replace="~{layout/plantilla :: footer}"/>
+</body>
+</html>

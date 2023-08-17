@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/plantilla :: head}">
+    <title>FastNews</title>
+</head>
+<body>
+    <header th:replace="~{layout/plantilla :: header}"/>
+
+    <!-- Sección principal para mostrar la información de deportes -->
+    <section th:fragment="listadoDeportes" id="listadoDeportes">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Seccion de Deportes</h4>
+                        </div>
+                        <div th:if="${deportes != null and !deportes.empty}">
+                            <div class="list-group">
+                                <!-- Iterando a través de la lista de deportes -->
+                                <div th:each="deporte : ${deportes}">
+                                    <div class="list-group-item">
+                                        <h2 class="mb-1">Titulo: [[${deporte.nombre}]]</h2>
+                                        <p class="mb-1">Descripción: [[${deporte.descripcion}]]</p>
+                                        <img th:if="${deporte.ruta_imagen}" th:src="${deporte.ruta_imagen}" alt="Imagen de deporte" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center p-2" th:if="${deportes == null or deportes.empty}">
+                            <span>No hay deportes disponibles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer th:replace="~{layout/plantilla :: footer}"/>
+</body>
+</html>
