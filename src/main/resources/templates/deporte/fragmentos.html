@@ -2,9 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{layout/plantilla :: head}">
     <title>FastNews</title>
+    
+    
+    
+    
 </head>
 <body>
     <header th:replace="~{layout/plantilla :: header}"/>
+    
+    
 
     <!-- Sección principal para mostrar la información de deportes -->
     <section th:fragment="listadoDeportes" id="listadoDeportes">
@@ -33,7 +39,23 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Reporte Usuarios
+                    </div>
+                    <div class="car-body">
+                        <a th:href="@{/reportes/deporte?tipo=vPDF}" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> <i class="fas fa-file-pdf"></i>
+                        </a>
+                        <a th:href="@{/reportes/deporte?tipo=PDF}" class="btn btn-success">
+                            <i class="fas fa-download"></i> <i class="fas fa-file-pdf"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
+        
     </section>
 
     <footer th:replace="~{layout/plantilla :: footer}"/>

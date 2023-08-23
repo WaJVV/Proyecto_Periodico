@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>FastNews</title>
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+        
+        
+        
+        
+        <!-- Sección principal para mostrar la información de deportes -->
+    <section th:fragment="listadoContacto" id="listadoContacto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Personas Contactadas Recientemente</h4>
+                        </div>
+                        <div th:if="${contactenos != null and !contactenos.empty}">
+                            <div class="list-group">
+                                <!-- Iterando a través de la lista de deportes -->
+                                <div th:each="contactenos : ${contactenos}">
+                                    <div class="list-group-item">
+                                        <h2 class="mb-1">Nombre: [[${contactenos.nombre}]]</h2>
+                                        <p class="mb-1">Apellido: [[${contactenos.apellido}]]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center p-2" th:if="${contactenos == null or contactenos.empty}">
+                            <span>No hay personas disponibles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- Sección principal para mostrar la información de deportes -->
+        <section th:fragment="FormularioContacto" id="FormularioContacto">
+
+
+            <form method="POST" th:action="@{/contacto/guardar}" th:object="${contactenos}" class="was-validated">
+
+
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Contactenos</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" name="nombre" th:field="*{nombre}"/></div>
+                        <div class="mb-3">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" class="form-control" name="apellido" th:field="*{apellido}" /></div>
+
+                        <div class="mb-3">
+                            <label for="email">Correo</label>
+                            <input type="email" class="form-control" 
+                                   name="correo" th:field="*{correo}"
+                                   /></div>
+
+                        <div class="mb-3" >
+                            <label for="tema_consulta">Tema de consulta</label>
+                            <textarea class="form-control" aria-label="With textarea" ></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer text-end">                                                
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-envelope"></i> Enviar
+                        </button></div>
+                </div>
+
+
+            </form>
+
+
+        </section>
+
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+    </body>
+</html>

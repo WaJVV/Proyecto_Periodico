@@ -2,10 +2,54 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{layout/plantilla::head}">
-        
+
     </head>
     <body>
         <header th:replace="~{layout/plantilla::header}"></header>
+
+
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1> Noticias destacadas </h1>
+                        </div>
+
+                        <div>
+
+                            <video width="620" height="440" controls >
+                                <source src="../static/videos/Noticia.mp4" type="video/mp4">
+                                    Your browser does not support the <code>video</code> tag.
+                            </video>
+
+                        </div>
+
+                        <div>
+
+                            <video width="620" height="440" controls>
+                                <source src="../static/videos/Noticia 2.mp4" type="video/mp4">
+                                    Your browser does not support the <code>video</code> tag.
+                            </video>
+
+                        </div>
+
+                        <div>
+                            <video width="620" height="440" controls>
+                                <source src="../static/videos/Noticia.mp4" type="video/mp4">
+                                    Your browser does not support the <code>video</code> tag.
+                            </video>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <footer th:replace="~{layout/plantilla::footer}"></footer>
     </body>
 </html>
